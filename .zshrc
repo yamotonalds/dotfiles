@@ -50,7 +50,7 @@ ZSH_CUSTOM=$HOME/dotfiles/oh-my-zsh-custom
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git autojump brew bundler cap docker encode65 gem git-extras rails redis-cli ruby urltools vagrant)
+plugins=(git autojump brew bundler cap docker encode66 gem git-extras rails redis-cli ruby urltools vagrant rbenv)
 
 source $ZSH/oh-my-zsh.sh
 
