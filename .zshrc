@@ -56,7 +56,6 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-export PATH="$PATH:/Users/yamotonalds/.rvm/gems/ruby-1.9.3-p327/bin:/Users/yamotonalds/.rvm/gems/ruby-1.9.3-p327@global/bin:/Users/yamotonalds/.rvm/rubies/ruby-1.9.3-p327/bin:/Users/yamotonalds/.rvm/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/Users/yamotonalds/.rvm/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
@@ -75,4 +74,3 @@ fi
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
 
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
