@@ -36,6 +36,6 @@ zle -N cool-peco-git-checkout
 bindkey '^o' cool-peco-git-checkout
 
 
-git config --global alias.ag 'git ls-files | xargs ag --pager="less -F -R" --nogroup --color-match=0\;31 --color-path=0\;0 --no-numbers'
+git config --global alias.ag '!git ls-files | xargs ag --pager="less -R" --nogroup --color-match=0\;31 --color-path=0\;0 --no-numbers'
 
 
