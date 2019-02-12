@@ -1,0 +1,27 @@
+# main viewにid表示
+set main-view = id date author:email-user commit-title:graph=yes,refs=yes
+
+set line-graphics = utf-8
+
+set split-view-width = 70%
+
+set mouse = true
+
+set refresh-mode = auto
+
+# 単語単位の差分も表示
+set diff-highlight = true
+color  diff-header       default magenta
+color  diff-chunk        black   white
+
+bind generic +      !git commit --amend --allow-empty
+
+# ` で commit ID をクリップボードにコピー (Mac用)
+bind generic `      @bash -c "echo -n '%(commit)' | pbcopy"
+
+# ` でファイルパスをクリップボードにコピー (Mac用)
+bind stage   `      @bash -c "echo -n '%(file)' | pbcopy"
+bind status  `      @bash -c "echo -n '%(file)' | pbcopy"
+bind tree    `      @bash -c "echo -n '%(file)' | pbcopy"
+bind blob    `      @bash -c "echo -n '%(file)' | pbcopy"
+
