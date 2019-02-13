@@ -1,3 +1,4 @@
+
 # main viewにid表示
 set main-view = id date author:email-user commit-title:graph=yes,refs=yes
 
@@ -13,8 +14,10 @@ set refresh-mode = auto
 set diff-highlight = true
 color  diff-header       default magenta
 color  diff-chunk        black   white
+color diff-add-highlight white green underline
+color diff-del-highlight white red underline
 
-bind generic +      !git commit --amend --allow-empty
+bind generic +      !git commit --verbose --amend --allow-empty
 
 # ` で commit ID をクリップボードにコピー (Mac用)
 bind generic `      @bash -c "echo -n '%(commit)' | pbcopy"
@@ -24,4 +27,8 @@ bind stage   `      @bash -c "echo -n '%(file)' | pbcopy"
 bind status  `      @bash -c "echo -n '%(file)' | pbcopy"
 bind tree    `      @bash -c "echo -n '%(file)' | pbcopy"
 bind blob    `      @bash -c "echo -n '%(file)' | pbcopy"
+
+# コミット時に差分も表示する
+bind status     C       !git commit --verbose
+
 
