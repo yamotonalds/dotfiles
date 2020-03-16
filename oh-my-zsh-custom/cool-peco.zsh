@@ -1,5 +1,10 @@
 
-source `dirname $0`/../cool-peco/cool-peco
+#source `dirname $0`/../cool-peco/cool-peco
+# === cool-peco init ===
+FPATH="$FPATH:/Users/tyamoto/dotfiles/cool-peco"
+autoload -Uz cool-peco
+cool-peco
+# ======================
 
 # pecoでcdrを開く
 function peco-cdr() {

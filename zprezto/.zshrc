@@ -5,6 +5,14 @@
 #   Sorin Ionescu <sorin.ionescu@gmail.com>
 #
 
+alias ls=gls
+
+# 単語区切り
+autoload -Uz select-word-style
+select-word-style default 
+zstyle ':zle:*' word-chars ' /-_=;@:{}[]()<>,|.'
+zstyle ':zle:*' word-style unspecified
+
 # Source Prezto.
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
@@ -25,8 +33,6 @@ zstyle ':chpwd:*' recent-dirs-default true
 zstyle ':chpwd:*' recent-dirs-file "$HOME/.cache/shell/chpwd-recent-dirs"
 zstyle ':chpwd:*' recent-dirs-pushd true
 
-#
-
 # コマンドラインでも # 以降をコメント扱いにする
 setopt interactive_comments
 
@@ -46,21 +52,36 @@ alias -g C='| pbcopy'
 alias -g P='pbpaste |'
 alias taketemp='cd $(mktemp -d)'
 alias md='mkdir -p'
+#alias ls='\ls -G'
+alias gs='git show --pretty=short --show-signature'
 
 # 指定秒数以上コマンド実行に時間がかかったらtimeの結果を表示する
 REPORTTIME=3
 
 # 各種plugin
 
+typeset -U path cdpath fpath manpath PATH FPATH
+
+source ${ZDOTDIR:-$HOME}/dotfiles/oh-my-zsh/lib/git.zsh
 source ${ZDOTDIR:-$HOME}/dotfiles/oh-my-zsh/plugins/git/git.plugin.zsh
 source ${ZDOTDIR:-$HOME}/dotfiles/oh-my-zsh/plugins/tmux/tmux.plugin.zsh
+source ${ZDOTDIR:-$HOME}/dotfiles/oh-my-zsh/plugins/rails/rails.plugin.zsh
 source ${ZDOTDIR:-$HOME}/dotfiles/oh-my-zsh-custom/cool-peco.zsh
 source ${ZDOTDIR:-$HOME}/dotfiles/oh-my-zsh-custom/update-prompt-time.zsh
 source ${ZDOTDIR:-$HOME}/dotfiles/oh-my-zsh-custom/homebrew.zsh
 
 eval "$(rbenv init -)"
+eval "$(direnv hook zsh)"
 
 export PATH="$HOME/.goenv/bin:$PATH"
 eval "$(goenv init -)"
 export GOPATH=$HOME/.go
+export EDITOR=vim
+
+if (which zprof > /dev/null 2>&1) ;then
+#  zprof
+fi
+
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 

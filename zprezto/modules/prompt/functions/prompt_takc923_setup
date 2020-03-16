@@ -92,7 +92,8 @@ ZSH_THEME_GIT_PROMPT_UNMERGED=$(str_with_color magenta '!')
 ZSH_THEME_GIT_PROMPT_UNTRACKED=$(str_with_color grey '?')
 
 function my_git_status() {
-    [ $(current_branch) ] && echo "($(current_branch)$(git_prompt_status))"
+    # [ $(current_branch) ] && echo "($(current_branch)$(git_prompt_status))"
+    [ $(current_branch) ] && echo "($(current_branch))"
 }
 
 function set_prompt() {
