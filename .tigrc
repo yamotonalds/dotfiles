@@ -1,18 +1,21 @@
 # main viewにid表示
-set main-view = id date author:email-user commit-title:graph=yes,refs=yes
+set main-view = id:width=12 date author:email-user commit-title:graph=yes,refs=yes
 
 set line-graphics = utf-8
 
 set split-view-width = 70%
+
+# 差分の前後の表示行数（diff-context)を指定
+set diff-context = 6
 
 set mouse = true
 
 set refresh-mode = auto
 
 # 単語単位の差分も表示
-set diff-highlight = true
-color  diff-header       default magenta
-color  diff-chunk        black   white
+set diff-highlight = /usr/local/share/git-core/contrib/diff-highlight/diff-highlight
+color diff-add-highlight	color120	color22	standout
+color diff-del-highlight	color196	color52	standout
 
 bind generic +      !git commit --amend --allow-empty
 
@@ -25,3 +28,6 @@ bind status  `      @bash -c "echo -n '%(file)' | pbcopy"
 bind tree    `      @bash -c "echo -n '%(file)' | pbcopy"
 bind blob    `      @bash -c "echo -n '%(file)' | pbcopy"
 
+# B でrebase
+bind main    B !git rebase -i %(commit)
+bind diff    B !git rebase -i %(commit)
