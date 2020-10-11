@@ -31,3 +31,11 @@ bind blob    `      @bash -c "echo -n '%(file)' | pbcopy"
 # B でrebase
 bind main    B !git rebase -i %(commit)
 bind diff    B !git rebase -i %(commit)
+
+# ! でrevert commit
+bind main    ! !git revert %(commit)
+bind diff    ! !git revert %(commit)
+
+# d でdelete branch
+bind refs    d !git branch -d %(branch)
+bind refs    D !git branch -D %(branch)
